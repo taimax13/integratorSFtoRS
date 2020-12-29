@@ -11,20 +11,19 @@ class Integrator(object):
 
     ### read credentials from config
     ### Integration with salesforce
-    sf = Salesforce(username='uname', password=123, organizationId="OrgId")
+    sf = Salesforce(username='uname', password=123, organizationId="um6.salesforce.com")
 
     s3_resource = boto3.resource('s3')
-    s3_resource.Object('bucket_name', 'file_name').upload_file(
-        Filename='filename')
+    s3_resource.Object('bucket_name', 'file_name').upload_file(Filename='filename')
 
     client = boto3.client('redshift')
 
     conn = psycopg2.connect(
-        host='mydb.mydatabase.us-west-2.redshift.amazonaws.com',
-        user='user',
+        host='qualibi-redshift-cluster-1', ###'mydb.mydatabase.eu-west-2.redshift.amazonaws.com',
+        user='quali',
         port=5439,
-        password='password',
-        dbname='example_db')
+        password='D1ffrantdataeveryday',
+        dbname='qualibi')
 
     cur = conn.cursor()
 
@@ -41,3 +40,4 @@ class Integrator(object):
         delimiter ',';"""
     cur.execute(sql)
     conn.commit()
+
