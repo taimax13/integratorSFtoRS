@@ -19,11 +19,11 @@ class Integrator(object):
     client = boto3.client('redshift')
 
     conn = psycopg2.connect(
-        host='qualibi-redshift-cluster-1', ###'mydb.mydatabase.eu-west-2.redshift.amazonaws.com',
-        user='quali',
+        host='########', ###'mydb.mydatabase.eu-west-2.redshift.amazonaws.com',
+        user='########',
         port=5439,
-        password='D1ffrantdataeveryday',
-        dbname='qualibi')
+        password='########',
+        dbname='########')
 
     cur = conn.cursor()
 
